@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu futuriste des scripts HTML CSS JavaScript</title>
+<meta name="description" content="Portail futuriste reliant les demonstrations HTML, CSS et JavaScript avec miniatures et telechargements.">
+<link rel="canonical" href="https://filedn.eu/llN3kr5vmyEBPIWCwFj3O6h/">
+<link rel="icon" href="https://filedn.eu/llN3kr5vmyEBPIWCwFj3O6h/Site_Web/favicondepascal.png" type="image/png">
+<link rel="icon" href="https://filedn.eu/llN3kr5vmyEBPIWCwFj3O6h/Site_Web/favicondepascal.ico" type="image/x-icon">
+
+<!-- Lier le menu social -->
+<link rel="stylesheet" type="text/css" href="https://filedn.eu/llN3kr5vmyEBPIWCwFj3O6h/Site_Web/style.css">
+<script src="https://filedn.eu/llN3kr5vmyEBPIWCwFj3O6h/Site_Web/script.js"></script>
+
+<!-- Lier le fichier JavaScript du menu -->
+<script src="https://filedn.eu/llN3kr5vmyEBPIWCwFj3O6h/Site_Web/menu.js" defer></script>
+<link rel="stylesheet" href="https://filedn.eu/llN3kr5vmyEBPIWCwFj3O6h/Site_Web/basedusite.css">
+
+<!-- Le JS pour fondu pastel -->
+<script src="https://filedn.eu/llN3kr5vmyEBPIWCwFj3O6h/Site_Web/couleurs.js"></script>
+
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #07090d;
+  --panel: rgba(11, 18, 26, 0.82);
+  --line: rgba(115, 241, 255, 0.28);
+  --text: #f3fbff;
+  --muted: #a8bbc6;
+  --cyan: #37e8ff;
+  --green: #54f2a9;
+  --rose: #ff4fd8;
+  --amber: #ffd166;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(55, 232, 255, 0.18), transparent 26rem),
+    radial-gradient(circle at 80% 0%, rgba(255, 79, 216, 0.12), transparent 24rem),
+    linear-gradient(135deg, #07090d 0%, #11151a 46%, #07120f 100%);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(115, 241, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(115, 241, 255, 0.08) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 78%);
+}
+
+a {
+  color: inherit;
+}
+
+.portal {
+  width: min(1440px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 34px 0 56px;
+}
+
+.portal-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  gap: 22px;
+  align-items: end;
+  padding: 34px 0 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.kicker {
+  margin: 0 0 10px;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  max-width: 900px;
+  font-size: clamp(34px, 6vw, 76px);
+  line-height: 0.94;
+  font-weight: 900;
+}
+
+.lead {
+  margin: 16px 0 0;
+  max-width: 760px;
+  color: var(--muted);
+  font-size: clamp(16px, 2vw, 21px);
+  line-height: 1.5;
+}
+
+.control-panel {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  box-shadow: 0 0 28px rgba(55, 232, 255, 0.12);
+}
+
+.search-label {
+  color: var(--cyan);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.search-input {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid rgba(84, 242, 169, 0.35);
+  background: rgba(0, 0, 0, 0.28);
+  color: var(--text);
+  padding: 0 14px;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(84, 242, 169, 0.14);
+}
+
+.counter {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 18px;
+  padding: 28px 0 0;
+}
+
+.tile {
+  position: relative;
+  min-height: 410px;
+  overflow: hidden;
+  border: 1px solid rgba(115, 241, 255, 0.24);
+  background: rgba(8, 13, 19, 0.84);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+  transform: translateY(0);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-top: 3px solid var(--cyan);
+  opacity: 0.8;
+}
+
+.tile:hover,
+.tile:focus-within {
+  transform: translateY(-5px);
+  border-color: rgba(84, 242, 169, 0.7);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.42), 0 0 26px rgba(84, 242, 169, 0.16);
+}
+
+.thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: #111;
+  border-bottom: 1px solid rgba(115, 241, 255, 0.2);
+}
+
+.tile-body {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+}
+
+.tile h2 {
+  margin: 0;
+  min-height: 58px;
+  font-size: 22px;
+  line-height: 1.25;
+  color: #ffffff;
+}
+
+.tile-code {
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  max-width: 100%;
+  min-height: 28px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 209, 102, 0.45);
+  color: var(--amber);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: none;
+  text-align: center;
+}
+
+.button-open {
+  background: var(--cyan);
+  color: #061015;
+}
+
+.button-download {
+  border-color: rgba(84, 242, 169, 0.55);
+  background: rgba(84, 242, 169, 0.08);
+  color: #d7ffec;
+}
+
+.button:hover,
+.button:focus {
+  filter: brightness(1.08);
+}
+
+.empty {
+  display: none;
+  margin: 30px 0 0;
+  padding: 18px;
+  border: 1px solid rgba(255, 79, 216, 0.45);
+  color: #ffd8f6;
+  background: rgba(255, 79, 216, 0.08);
+}
+
+@media (max-width: 820px) {
+  .portal {
+    width: min(100% - 20px, 720px);
+    padding-top: 22px;
+  }
+
+  .portal-top {
+    grid-template-columns: 1fr;
+    padding-top: 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tile {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .actions {
+    grid-template-columns: 1fr;
+  }
+
+  .tile h2 {
+    min-height: auto;
+  }
+}
+</style>
+</head>
+<body>
+<!-- menu social -->
+<nav class="social-menu">
+  <ul>
+    <li><a href="https://fr.pinterest.com/pascal509/mes-tableaux-tous-genre/" target="_blank">Pinterest</a></li>
+    <li><a href="https://www.flickr.com/photos/delfossepascal" target="_blank">Flickr</a></li>
+    <li><a href="https://www.tumblr.com/lestoilesdepascal" target="_blank">Tumblr</a></li>
+    <li><a href="https://x.com/PascalDelfossee" target="_blank">X</a></li>
+    <li><a href="https://www.youtube.com/c/DelfossePascal" target="_blank">YouTube</a></li>
+  </ul>
+</nav>
+
+<!-- Le menu sera injecte ici -->
+<header></header>
+
+<main class="portal">
+  <section class="portal-top" aria-labelledby="portal-title">
+    <div>
+      <p class="kicker">Script HTML CSS JavaScript</p>
+      <h1 id="portal-title">Menu futuriste des demonstrations</h1>
+      <p class="lead">Acces direct aux pages index de chaque tiroir, avec apercu visuel et archive RAR prete au telechargement.</p>
+    </div>
+    <form class="control-panel" role="search">
+      <label class="search-label" for="filter">Rechercher</label>
+      <input class="search-input" id="filter" type="search" autocomplete="off" placeholder="Nom du script">
+      <div class="counter"><span id="visible-count">26</span> modules disponibles</div>
+    </form>
+  </section>
+
+  <section class="grid" id="script-grid" aria-label="Liste des scripts">
+    <article class="tile" data-title="affichage cercle hover fondu zoom">
+      <img class="thumb" src="apercus/affichage_cercle_hover.png" alt="Apercu affichage cercle hover" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">affichage_cercle_hover</span>
+        <h2>Affichage cercle hover</h2>
+        <div class="actions">
+          <a class="button button-open" href="affichage_cercle_hover/affichage_cercle_hover/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/affichage_cercle_hover.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="affichage cercle hover 2 boite texte lien">
+      <img class="thumb" src="apercus/affichage_cercle_hover_2.png" alt="Apercu affichage cercle hover 2" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">affichage_cercle_hover_2</span>
+        <h2>Affichage cercle hover 2</h2>
+        <div class="actions">
+          <a class="button button-open" href="affichage_cercle_hover_2/affichage_cercle_hover_2/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/affichage_cercle_hover_2.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="barre chargement facebook css3">
+      <img class="thumb" src="apercus/barre_chargement_facebook.png" alt="Apercu barre chargement facebook" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">barre_chargement_facebook</span>
+        <h2>Barre chargement Facebook</h2>
+        <div class="actions">
+          <a class="button button-open" href="barre_chargement_facebook/barre_chargement_facebook/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/barre_chargement_facebook.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="barre recherche depliante">
+      <img class="thumb" src="apercus/barre_recherche_depliante.png" alt="Apercu barre recherche depliante" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">barre_recherche_depliante</span>
+        <h2>Barre recherche depliante</h2>
+        <div class="actions">
+          <a class="button button-open" href="barre_recherche_depliante/barre_recherche_depliante/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/barre_recherche_depliante.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="bouton ascenseur fleche">
+      <img class="thumb" src="apercus/bouton_ascenseur.png" alt="Apercu bouton ascenseur" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">bouton_ascenseur</span>
+        <h2>Bouton ascenseur</h2>
+        <div class="actions">
+          <a class="button button-open" href="bouton_ascenseur/bouton_ascenseur/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/bouton_ascenseur.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="bouton on off curseur">
+      <img class="thumb" src="apercus/bouton_on_off_curseur.png" alt="Apercu bouton on off curseur" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">bouton_on_off_curseur</span>
+        <h2>Bouton on off curseur</h2>
+        <div class="actions">
+          <a class="button button-open" href="bouton_on_off_curseur/bouton_on_off_curseur/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/bouton_on_off_curseur.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="bouton on off hifi">
+      <img class="thumb" src="apercus/bouton_on_off_hifi.png" alt="Apercu bouton on off hifi" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">bouton_on_off_hifi</span>
+        <h2>Bouton on off hifi</h2>
+        <div class="actions">
+          <a class="button button-open" href="bouton_on_off_hifi/bouton_on_off_hifi/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/bouton_on_off_hifi.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="bouton on off interrupteur">
+      <img class="thumb" src="apercus/bouton_on_off_interrupteur.png" alt="Apercu bouton on off interrupteur" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">bouton_on_off_interrupteur</span>
+        <h2>Bouton on off interrupteur</h2>
+        <div class="actions">
+          <a class="button button-open" href="bouton_on_off_interrupteur/bouton_on_off_interrupteur/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/bouton_on_off_interrupteur.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="bouton poussoir">
+      <img class="thumb" src="apercus/bouton_poussoir.png" alt="Apercu bouton poussoir" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">bouton_poussoir</span>
+        <h2>Bouton poussoir</h2>
+        <div class="actions">
+          <a class="button button-open" href="bouton_poussoir/bouton_poussoir/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/bouton_poussoir.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="bouton reseaux sociaux">
+      <img class="thumb" src="apercus/bouton_reseaux_sociaux.png" alt="Apercu bouton reseaux sociaux" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">bouton_reseaux_sociaux</span>
+        <h2>Bouton reseaux sociaux</h2>
+        <div class="actions">
+          <a class="button button-open" href="bouton_reseaux_sociaux/bouton_reseaux_sociaux/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/bouton_reseaux_sociaux.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="bouton reseaux sociaux 2">
+      <img class="thumb" src="apercus/bouton_reseaux_sociaux_2.png" alt="Apercu bouton reseaux sociaux 2" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">bouton_reseaux_sociaux_2</span>
+        <h2>Bouton reseaux sociaux 2</h2>
+        <div class="actions">
+          <a class="button button-open" href="bouton_reseaux_sociaux_2/bouton_reseaux_sociaux_2/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/bouton_reseaux_sociaux_2.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="bouton semi mobile">
+      <img class="thumb" src="apercus/bouton_semi_mobile.png" alt="Apercu bouton semi mobile" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">bouton_semi_mobile</span>
+        <h2>Bouton semi mobile</h2>
+        <div class="actions">
+          <a class="button button-open" href="bouton_semi_mobile/bouton_semi_mobile/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/bouton_semi_mobile.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="bouton semi mobile 2">
+      <img class="thumb" src="apercus/bouton_semi_mobile_2.png" alt="Apercu bouton semi mobile 2" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">bouton_semi_mobile_2</span>
+        <h2>Bouton semi mobile 2</h2>
+        <div class="actions">
+          <a class="button button-open" href="bouton_semi_mobile_2/bouton_semi_mobile_2/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/bouton_semi_mobile_2.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="effet texture css image">
+      <img class="thumb" src="apercus/effet_texture.png" alt="Apercu effet texture" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">effet_texture</span>
+        <h2>Effet texture</h2>
+        <div class="actions">
+          <a class="button button-open" href="effet_texture/effet_texture/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/effet_texture.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="fenetre modale">
+      <img class="thumb" src="apercus/fenetre_modale.png" alt="Apercu fenetre modale" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">fenetre_modale</span>
+        <h2>Fenetre modale</h2>
+        <div class="actions">
+          <a class="button button-open" href="fenetre_modale/fenetre_modale/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/fenetre_modale.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="fenetre modale 2">
+      <img class="thumb" src="apercus/fenetre_modale_2.png" alt="Apercu fenetre modale 2" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">fenetre_modale_2</span>
+        <h2>Fenetre modale 2</h2>
+        <div class="actions">
+          <a class="button button-open" href="fenetre_modale_2/fenetre_modale_2/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/fenetre_modale_2.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="formulaire login compact blanc">
+      <img class="thumb" src="apercus/formulaire_login_compact_blanc.png" alt="Apercu formulaire login compact blanc" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">formulaire_login_compact_blanc</span>
+        <h2>Formulaire login compact blanc</h2>
+        <div class="actions">
+          <a class="button button-open" href="formulaire_login_compact_blanc/formulaire_login_compact_blanc/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/formulaire_login_compact_blanc.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="formulaire login compact noir">
+      <img class="thumb" src="apercus/formulaire_login_compact_noir.png" alt="Apercu formulaire login compact noir" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">formulaire_login_compact_noir</span>
+        <h2>Formulaire login compact noir</h2>
+        <div class="actions">
+          <a class="button button-open" href="formulaire_login_compact_noir/formulaire_login_compact_noir/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/formulaire_login_compact_noir.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="image animation accordeon">
+      <img class="thumb" src="apercus/image_animation_accordeon.png" alt="Apercu image animation accordeon" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">image_animation_accordeon</span>
+        <h2>Image animation accordeon</h2>
+        <div class="actions">
+          <a class="button button-open" href="image_animation_accordeon/image_animation_accordeon/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/image_animation_accordeon.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="image animation enroule">
+      <img class="thumb" src="apercus/image_animation_enroule.png" alt="Apercu image animation enroule" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">image_animation_enroule</span>
+        <h2>Image animation enroule</h2>
+        <div class="actions">
+          <a class="button button-open" href="image_animation_enroule/image_animation_enroule/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/image_animation_enroule.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="image effet hover 1">
+      <img class="thumb" src="apercus/image_effet_hover_1.png" alt="Apercu image effet hover 1" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">image_effet_hover_1</span>
+        <h2>Image effet hover 1</h2>
+        <div class="actions">
+          <a class="button button-open" href="image_effet_hover_1/image_effet_hover_1/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/image_effet_hover_1.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="image effet hover 2">
+      <img class="thumb" src="apercus/image_effet_hover_2.png" alt="Apercu image effet hover 2" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">image_effet_hover_2</span>
+        <h2>Image effet hover 2</h2>
+        <div class="actions">
+          <a class="button button-open" href="image_effet_hover_2/image_effet_hover_2/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/image_effet_hover_2.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="image effet hover 3">
+      <img class="thumb" src="apercus/image_effet_hover_3.png" alt="Apercu image effet hover 3" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">image_effet_hover_3</span>
+        <h2>Image effet hover 3</h2>
+        <div class="actions">
+          <a class="button button-open" href="image_effet_hover_3/image_effet_hover_3/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/image_effet_hover_3.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="image grande dimension">
+      <img class="thumb" src="apercus/image_grande_dimension.png" alt="Apercu image grande dimension" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">image_grande_dimension</span>
+        <h2>Image grande dimension</h2>
+        <div class="actions">
+          <a class="button button-open" href="image_grande_dimension/image_grande_dimension/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/image_grande_dimension.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="saisie autocompletion">
+      <img class="thumb" src="apercus/saisie_autocompletion.png" alt="Apercu saisie autocompletion" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">saisie_autocompletion</span>
+        <h2>Saisie autocompletion</h2>
+        <div class="actions">
+          <a class="button button-open" href="saisie_autocompletion/saisie_autocompletion/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/saisie_autocompletion.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile" data-title="slideshow slider images">
+      <img class="thumb" src="apercus/slideshow.png" alt="Apercu slideshow" loading="lazy">
+      <div class="tile-body">
+        <span class="tile-code">slideshow</span>
+        <h2>Slideshow</h2>
+        <div class="actions">
+          <a class="button button-open" href="slideshow/slideshow/index.htm">Ouvrir</a>
+          <a class="button button-download" href="Download/slideshow.rar">RAR</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <p class="empty" id="empty-state">Aucun module ne correspond a cette recherche.</p>
+</main>
+
+<script>
+(function () {
+  var input = document.getElementById('filter');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.tile'));
+  var count = document.getElementById('visible-count');
+  var empty = document.getElementById('empty-state');
+
+  function filterCards() {
+    var query = input.value.trim().toLowerCase();
+    var visible = 0;
+
+    cards.forEach(function (card) {
+      var text = card.getAttribute('data-title') || card.textContent;
+      var match = text.toLowerCase().indexOf(query) !== -1;
+      card.style.display = match ? '' : 'none';
+      if (match) {
+        visible += 1;
+      }
+    });
+
+    count.textContent = visible;
+    empty.style.display = visible ? 'none' : 'block';
+  }
+
+  input.addEventListener('input', filterCards);
+}());
+</script>
+</body>
+</html>

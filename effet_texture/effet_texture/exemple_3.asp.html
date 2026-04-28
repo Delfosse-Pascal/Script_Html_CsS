@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Script HTML-CSS Application de textures : Outils-web.com</title>
+<meta name="description" content="Différentes textures à appliquer sur du texte, effets garantis">
+<meta name="Robots" content="all">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" media="screen" type="text/css" href="../../css/style_pop.css">
+
+<!-- Google tag (gtag.js) -->
+<script async="" src="../../gtag/js?id=G-0HJ2R3BJ8E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0HJ2R3BJ8E');
+</script>
+
+<link rel="stylesheet" type="text/css" href="css/normalize.css">
+<link rel="stylesheet" type="text/css" href="css/demo.css">
+<link rel="stylesheet" type="text/css" href="css/style9.css">
+<script src="js/modernizr.custom.js"></script>
+</head>
+<body>
+<a href="../../index.htm"><img src="https://filedn.eu/llN3kr5vmyEBPIWCwFj3O6h/home.png" border="0" width="400" height="100" alt=""></a>
+<br><p class="tt">Différentes textures à appliquer sur du texte, effets garantis : effet scratch</p><br><br>
+<p><a href="default.asp.html" class="btn">GRADIENT</a>&nbsp;<a href="exemple_2.asp.html" class="btn">COOL</a>&nbsp;<a href="exemple_3.asp.html" class="btn">SCRATCH</a><br><br></p>
+
+		<div class="container">
+			<canvas id="canvas" width="800" height="500">
+			    OUTILS-WEB
+			</canvas>
+		</div>
+		<script type="text/javascript">
+			WebFontConfig = {
+				google: { families: [ 'Oswald' ] },
+				fontactive: function() {
+					var canvas = document.getElementById("canvas");
+					var ctx = canvas.getContext("2d");
+
+					var img = document.createElement("img");
+					img.onload = function () {
+					    draw();
+					}
+					img.src = "img/brushed_1.png";
+
+					function draw(x) {
+
+					    // put text on canvas
+					    ctx.font = "bold 110pt Oswald";
+					    ctx.fillStyle = 'white';
+					    ctx.textAlign = 'center';
+					    var x = canvas.width / 2;
+					    ctx.fillText("OUTILS-WEB", x, 330);
+					    
+					    // use compositing to draw the background image
+					    // only where the text has been drawn
+					    ctx.globalCompositeOperation = "source-in";
+
+					    ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
+					}
+				}
+			};
+			(function() {
+			 var wf = document.createElement('script');
+			 wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				 '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			 wf.type = 'text/javascript';
+			 wf.async = 'true';
+			 var s = document.getElementsByTagName('script')[0];
+			 s.parentNode.insertBefore(wf, s);
+		   })();
+		</script>
+
+<a href="../../index.htm" class="btn" onclick="window.open('', '_self'); window.close(); setTimeout(function(){ window.location.href = this.href; }.bind(this), 150); return false;">FERMER LA FENETRE</a>
+<br><br>
+<div align="center">
+<script async="" src="../../pagead/js/f.txt"></script>
+<!-- Scripts -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1653301921633219" data-ad-slot="8529892455" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<div style="top: 20px; right: 0px; height: 50px; overflow: hidden; position: absolute"><a href="https://twitter.com/share" class="twitter-share-button" data-via="WebOutils" data-count="none" data-lang="fr">Tweeter</a>&nbsp; 
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<div class="g-plusone" data-annotation="none"></div>&nbsp; <script src="../../js/platform.js" async="" defer="">  {lang: 'fr'}</script>
+<iframe src="//www.facebook.com/plugins/like.php?href=http://www.outils-web.com&width&layout=button_count&action=like&show_faces=false&share=true&height=21&appId=301660269867203" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowtransparency="true"></iframe>
+</div>
+
+<br><br><br>
+</body>
+</html>
